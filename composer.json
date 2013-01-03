@@ -8,7 +8,8 @@
         "guzzle/parser": "3.0.*",
         "guzzle/cache": "3.0.*",
         "guzzle/log": "3.0.*",
-        "guzzle/plugin": "3.0.*"
+        "guzzle/plugin": "3.0.*",
+        "react/react": "0.2.*"
     },
     "autoload": {
         "psr-0": { "Bing": "src" }
