@@ -14,7 +14,7 @@ class Factory
     /**
      * Bing API URI Constant
      */ 
-    const BING_API_BASE_URL  = 'https://api.datamarket.azure.com/Bing/Search';
+	const BING_API_BASE_URL  = 'https://api.datamarket.azure.com/Bing/Search';
 	
 	/**
 	 * AccountKey
