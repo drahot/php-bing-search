@@ -7,6 +7,11 @@ use Bing\Search\SearchResult;
 use React\EventLoop\Factory as ReactEventLoopFactory;
 use React\Stream\Stream as ReactStream;
 
+/**
+ * Image Downloader
+ * 
+ * @author drahot
+ */
 class ImageDownloader
 {
 
