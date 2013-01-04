@@ -1,9 +1,8 @@
-php-bing-search
-===============
-
 #PHP Bing Search API
 
 Bing Search API Library for php
+
+[![Build Status](https://secure.travis-ci.org/drahot/php-bing-search.png?branch=master)](http://travis-ci.org/drahot/php-bing-search)
 
 ### Example
 
