@@ -89,5 +89,5 @@ class SearchIterator implements Iterator
     {
         return $this->index;
     }
-	
+    
 }

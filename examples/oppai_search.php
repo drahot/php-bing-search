@@ -9,8 +9,8 @@ $factory = new Factory($accountKey);
 $s = $factory->createImageSearch('oppai');
 
 foreach ($s as $key => $resultObject) {
-	foreach ($resultObject as $obj) {
-		echo $obj, PHP_EOL;
-	}
+    foreach ($resultObject as $obj) {
+        echo $obj, PHP_EOL;
+    }
 }
 

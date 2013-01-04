@@ -8,10 +8,10 @@ namespace Bing\HttpClient;
  */
 interface ClientInterface
 {
-	
-	public function request($uri, array $params = array());
-	public function getBody();
-	public function getStatusCode();
-	public function getRawHeaders();
+    
+    public function request($uri, array $params = array());
+    public function getBody();
+    public function getStatusCode();
+    public function getRawHeaders();
 
 }
