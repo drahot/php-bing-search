@@ -91,7 +91,7 @@ class SearchResult implements ArrayAccess, Iterator, Countable
     }
 
     /**
-     * Description
+     * Search Result Count
      * @return type
      */
     public function count()
