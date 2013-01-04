@@ -59,7 +59,7 @@ class ImageDownloader
 		return $images;
 	}
 
-	private function processDownload(array &$images)
+	private function processDownload(array $images)
 	{
 		$loop = ReactEventLoopFactory::create();
 		foreach ($images as $file => $url) {
@@ -70,15 +70,15 @@ class ImageDownloader
 				continue;
 			}
 			$write = $this->getStream($loop, $file, 'w');
-		
-			$read->on('end', function () use ($file, &$images) {
+			$read->on('end', function () use ($file, $loop, &$images) {
 				unset($images[$file]);
+				if (0 === count($images)) {
+					$loop->stop();
+				}
 				echo "Finished downloading $file\n";
 			});
 			$read->pipe($write);
 		}
-		$this->watchImages($loop, $images);
-		echo "This script will show the download status every 1 seconds.\n";
 		$loop->run();
 	}
 
@@ -91,25 +91,6 @@ class ImageDownloader
 		stream_set_blocking($fp, 0);
 		$s = new ReactStream($fp, $loop);
 		return $s;
-	}
-
-	private function watchImages($loop, array &$images)
-	{
-		$loop->addPeriodicTimer(1, function ($timer, $loop) use (&$images) {
-			if (0 === count($images)) {
-				$loop->cancelTimer($timer);
-				$loop->stop();
-			}
-			foreach ($images as $file => $url) {
-				if (filesize($file) === 0) {
-					unset($images[$file]);
-					continue;
-				}
-				$mbytes = filesize($file) / (1024 * 1024);
-				$formatted = number_format($mbytes, 3);
-				echo "$file: $formatted MiB\n";
-			}
-		});
 	}
 
 }
